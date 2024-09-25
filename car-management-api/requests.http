@@ -1,0 +1,12 @@
+### Authorization by token, part 2. Use token to authorize.
+GET http://localhost:8080/car
+
+###
+POST http://localhost:8080/car
+Content-Type: application/json
+
+{ "brand": "BMW", "engineType": "BEV", "model": "5-series" }
+
+####
+DELETE http://localhost:8080/car/4ae6bc58-9ae2-4111-a3b5-30d22a42a9c6
+
