@@ -1,7 +1,4 @@
 quarkus:
-  banner:
-    enabled: true
-    path: xbox-banner.txt
   liquibase:
     migrate-at-start: true
     search-path:
@@ -35,3 +32,17 @@ quarkus:
       generation: none
     log:
       sql: ${hibernate_orm_log_sql:true}
+
+"%prod":
+  quarkus:
+    liquibase:
+      enabled: false
+      migrate-at-start: false
+    datasource:
+      username: ${db_user:postgres}
+      password: ${db_password:postgres}
+      jdbc:
+        url: jdbc:postgresql://${db_host:localhost}:${db_port:5433}/${db_name:car-management}?currentSchema=${db_schema:car_management}
+        initial-size: ${db_pool_min_size:2}
+        min-size: ${db_pool_min_size:2}
+        max-size: ${db_pool_max_size:5}
