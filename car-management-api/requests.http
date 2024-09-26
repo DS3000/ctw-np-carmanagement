@@ -2,11 +2,15 @@
 GET http://localhost:8080/car
 
 ###
+GET http://localhost:8080/car/67d4b756-aeb6-4918-8f86-c40179b285c8
+
+###
 POST http://localhost:8080/car
 Content-Type: application/json
 
-{ "brand": "BMW", "engineType": "BEV", "model": "5-series" }
+{ "brand": "BMW", "engineType": "BEV", "model": "7-series" }
 
 ####
-DELETE http://localhost:8080/car/4ae6bc58-9ae2-4111-a3b5-30d22a42a9c6
+DELETE http://localhost:8080/car/67d4b756-aeb6-4918-8f86-c40179b285c8
+
 
