@@ -1,0 +1,6 @@
+INSERT INTO car_management.t_car (id, brand, model, engine_type, created_at, created_by) VALUES ('c9305ad0-04f2-4678-8d95-99c10d747dc7', 'BMW', '5-series from REST', 'BEV', '2024-09-26 21:06:45.618736 +00:00', 'system_user');
+INSERT INTO car_management.t_car (id, brand, model, engine_type, created_at, created_by) VALUES ('83403494-cf23-437f-a095-dd723e81ff93', 'BMW', '5-series', 'PHEV', '2024-09-26 21:08:53.107583 +00:00', 'system_user');
+INSERT INTO car_management.t_car (id, brand, model, engine_type, created_at, created_by) VALUES ('6fbbd079-e94e-442a-ac49-3fecf399612f', 'BMW', '5-series', 'DIESEL', '2024-09-26 21:09:03.892345 +00:00', 'system_user');
+INSERT INTO car_management.t_car (id, brand, model, engine_type, created_at, created_by) VALUES ('8e1a4f21-00e0-4778-80ab-d5cedf4dd748', 'BMW', '3-series', 'DIESEL', '2024-09-26 21:09:08.341799 +00:00', 'system_user');
+INSERT INTO car_management.t_car (id, brand, model, engine_type, created_at, created_by) VALUES ('dc44b697-bb0f-4abb-bfa0-6dae6e16bd0c', 'BMW', '2-series', 'GASOLINE', '2024-09-26 21:09:18.865323 +00:00', 'system_user');
+INSERT INTO car_management.t_car (id, brand, model, engine_type, created_at, created_by) VALUES ('cbaad6ce-17e2-4134-8144-c6e9307f7e77', 'BMW', '7-series', 'BEV', '2024-09-26 21:09:31.880154 +00:00', 'system_user');
