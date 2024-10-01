@@ -1,0 +1,38 @@
+user types:
+.admin
+ -can add, modify, and remove cars
+ -can limit tme between reservations (??)
+ -can limit reservation periods (??)
+
+.user (**required)
+ -can view cast list, and filter by engine type
+  .list shows basic car info like brand, model, and engine type
+ -can view a car's full specification (detail page for each car)
+ -can make reservations (reservations rules apply)
+  .by default, drop-off date\time is the current instant, or the next available instant
+
+car info:
+.id [internal info, not user-facing]
+.brand
+.model
+.seats
+.license plate
+.engine type (eletric, hybrid, combustion)
+.autonomy (km)
+.color
+.image
+
+reservation info:
+.pick-up date\time
+.drop-off date\time
+.car id
+.person name
+.person contact
+.person license number
+
+reservation rules:
+.reservations must be separated by at least one hour:
+ -pick-up date\time must take place at least one hour after another reservation (if any)
+ -drop-off date\time must take place at least one hour before another reservation (if any)
+.drop-off must take place at most 4 days after the pick-up date\time
+ -if the drop-off instant takes place after 20:00 on a friday, the drop-off is rescheduled, with mandatory drop-off in following monday at 8:00
