@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { CarService } from '../../service/car.service';
+import { Car } from '../../model/car';
 
 @Component({
   selector: 'app-view',
@@ -8,5 +11,20 @@ import { Component } from '@angular/core';
   styleUrl: './view.component.css'
 })
 export class ViewComponent {
+  carId: string | null = null;
+  car: Car | null = null;
 
+  constructor(private route: ActivatedRoute, public carService: CarService) { }
+
+  ngOnInit(): void {
+    this.carId = this.route.snapshot.paramMap.get("carId");
+    console.log(`carId: ${this.carId}`);
+
+    if (this.carId != null) {
+      this.carService.getById(this.carId).subscribe((data: Car) => {
+        console.log("Found a car: " + data);
+        this.car = data;
+      })
+    }
+  }
 }

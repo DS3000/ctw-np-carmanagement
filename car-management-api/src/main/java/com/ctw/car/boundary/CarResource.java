@@ -10,6 +10,7 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
 import java.util.List;
+import java.util.UUID;
 
 @Path(Routes.CAR)
 @ApplicationScoped
@@ -30,5 +31,20 @@ public class CarResource {
     ) {
         List<Car> cars = this.carService.getCars();
         return Response.status(200).entity(cars).build();
+    }
+
+    @GET
+    @Path("{carId}")
+    public Response getCarById(
+            String carId
+    ) {
+        List<Car> cars = this.carService.getCars();
+        UUID car_uuid = UUID.fromString(carId);
+
+        var found_car = cars.stream().filter(c -> c.getId().equals(car_uuid)).findFirst();
+        if (found_car.isEmpty()){
+            return Response.status(400).entity("Car not found").build();
+        }
+        return Response.status(200).entity(found_car.get()).build();
     }
 }

@@ -35,6 +35,10 @@ export class CarService {
     )
   }
 
+  getById(id: string): Observable<any> {
+    return this.httpClient.get(this.apiURL + '/car/' + id)
+  }
+
   /** 
    * Write code on Method
    *

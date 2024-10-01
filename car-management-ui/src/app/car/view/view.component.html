@@ -1,1 +1,12 @@
-<p>view works!</p>
+<h1>Car Detail View</h1>
+
+@if (car) {
+    <p>ID: {{ car.id }}</p>
+    <p>Brand: {{ car.brand }}</p>
+    <p>Model: {{ car.model }}</p>
+    <p>Engine Type: {{ car.engineType }}</p>
+
+
+} @else {
+    <p>Car not found!</p>
+}
