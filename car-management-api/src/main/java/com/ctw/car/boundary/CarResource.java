@@ -38,13 +38,27 @@ public class CarResource {
     public Response getCarById(
             String carId
     ) {
-        List<Car> cars = this.carService.getCars();
         UUID car_uuid = UUID.fromString(carId);
 
-        var found_car = cars.stream().filter(c -> c.getId().equals(car_uuid)).findFirst();
+        var found_car = this.carService.getCarById(car_uuid);
         if (found_car.isEmpty()){
-            return Response.status(400).entity("Car not found").build();
+            return Response.status(400, "Could not fetch car info. Reason: car not found").build();
         }
         return Response.status(200).entity(found_car.get()).build();
+    }
+
+    @DELETE
+    @Path("{carId}")
+    public Response deleteCarById(
+        String carId
+    ) {
+        UUID car_uuid = UUID.fromString(carId);        
+
+        var removed_entries = this.carService.deleteCarById(car_uuid);
+        if (removed_entries == 0) {
+            return Response.status(400, "Could not delete car. Reason: car not found.").build();
+        }
+
+        return Response.status(200).build();
     }
 }
