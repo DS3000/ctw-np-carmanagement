@@ -1,7 +1,8 @@
 <h1>Car Detail View</h1>
 
+<h2>Car info</h2>
 @if (car) {
-    <p>ID: {{ car.id }}</p>
+    <!-- <p>ID: {{ car.id }}</p> -->
     <p>Brand: {{ car.brand }}</p>
     <p>Model: {{ car.model }}</p>
     <p>Engine Type: {{ car.engineType }}</p>
@@ -9,4 +10,34 @@
 
 } @else {
     <p>Car not found!</p>
+}
+
+<h2>Reservations</h2>
+@if (reservations) {
+
+    <table class="table table-striped">
+        <thead>
+            <th>Pick-up date</th>
+            <th>Drop-off date</th>
+            <th>Reservation Name</th>
+            <th>Contact number</th>
+            <th>License number</th>
+        </thead>
+        <tbody>
+            @for (reservation of reservations; track reservation.id) {
+                <tr>
+                    <td>Pick-up date: {{ reservation.pick_up }}</td>
+                    <td>Drop-off date: {{ reservation.drop_off }}</td>
+                    <td>Reserve name: {{ reservation.reserve_name }}</td>
+                    <td>Contact: {{ reservation.contact }}</td>
+                    <td>License number: {{ reservation.license }}</td>        
+                </tr>
+            }
+        </tbody>
+    </table>
+    
+
+
+} @else {
+    <p>no reservation found!</p>
 }

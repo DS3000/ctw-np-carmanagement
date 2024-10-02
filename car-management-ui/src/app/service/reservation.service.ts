@@ -4,12 +4,12 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {  Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { Car } from '../model/car';
+import { Reservation } from '../model/reservation';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CarService {
+export class ReservationService {
 
   private apiURL = "http://localhost:8080"
 
@@ -26,21 +26,17 @@ export class CarService {
    *
    * @return response()
    */
-  getAll(): Observable<Car[]> {
+  getAll(): Observable<Reservation[]> {
   
-    return this.httpClient.get<Car[]>(this.apiURL + '/car')
+    return this.httpClient.get<Reservation[]>(this.apiURL + '/reservation')
   
     .pipe(
       catchError(this.errorHandler)
     )
   }
 
-  getById(id: string): Observable<Car> {
-    return this.httpClient.get<Car>(this.apiURL + '/car/' + id);
-  }
-
-  deleteCarById(id: string): Observable<any> {
-    return this.httpClient.put(this.apiURL + '/car', {params: {"carId": id }});
+  getById(id: string): Observable<Reservation[]> {
+    return this.httpClient.get<Reservation[]>(this.apiURL + '/reservation/' + id);
   }
 
   /** 
